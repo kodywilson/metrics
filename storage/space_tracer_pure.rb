@@ -7,7 +7,7 @@ require 'json'
 require 'influxdb'
 require 'stoarray'
 
-conf     = JSON.parse(File.read('pure_stats.json'))
+conf     = JSON.parse(File.read('/u01/app/prd/pure_stats/pure_stats.json'))
 base_dir = conf['base_dir']
 database = conf['database']
 host     = conf['db_host']
@@ -23,10 +23,10 @@ def bytes_to_tb(metric)
   (metric.to_f / 1_099_511_627_776).round(3)
 end
 
-p_conf['arrays'].each do |ray, key|
+conf['arrays'].each do |ray, key|
   base_url = 'https://' + ray + '.nordstrom.net/api/1.4/'
   p_url     = base_url + 'auth/session'
-  p_headers = p_conf['headers']
+  p_headers = conf['headers']
   token     = Base64.decode64(key)
   params    = { api_token: token }
   cookies   = Stoarray.new(headers: p_headers, meth: 'Post', params: params, url: p_url).cookie
