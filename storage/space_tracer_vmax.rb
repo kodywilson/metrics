@@ -7,7 +7,7 @@ require 'json'
 require 'influxdb'
 require 'nokogiri'
 
-conf     = JSON.parse(File.read('vmax_stats.json'))
+conf     = JSON.parse(File.read('/u01/app/prd/vmax_stats/vmax_stats.json'))
 base_dir = conf['base_dir']
 database = conf['database']
 host     = conf['db_host']

@@ -5,7 +5,7 @@ require 'csv'
 require 'json'
 require 'influxdb'
 
-conf     = JSON.parse(File.read('pure_stats.json'))
+conf     = JSON.parse(File.read('/u01/app/prd/pure_stats/pure_stats.json'))
 base_dir = conf['base_dir']
 database = conf['database']
 host     = conf['db_host']

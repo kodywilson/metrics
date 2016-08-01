@@ -30,10 +30,10 @@ sudo crontab -e
 */1 * * * * /opt/chef/embedded/bin/ruby /u01/app/prd/pure_stats/perf_tracer_pure.rb > /dev/null 2>&1
 ```
 
-## JSON configuration files
+## JSON configuration file examples
 ---------------------------
 
-### Pure Example:
+### Pure:
 ```json
     {
       "base_dir": "/u01/app/prd/pure_stats/",
@@ -58,7 +58,7 @@ sudo crontab -e
 + db_pass  - Database user's password.
 + arrays   - Name of array with base64 encoded token.
 
-### Vmax Example:
+### Vmax:
 ```json
     {
       "base_dir": "/u01/app/prd/vmax_stats/",
@@ -70,9 +70,29 @@ sudo crontab -e
     }
 ```
 
+### Xtremio:
+```json
+    {
+      "base_dir": "/u01/app/prd/xtremio_stats/",
+      "database": "nameofyourdatabase",
+      "db_host": "databasehost.nordstrom.net",
+      "db_user": "putdatabaseuserhere",
+      "db_pass": "base64encodeddatabaseuserspassword",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "arrays": {
+        "xtremio01": "Basic base64encodeuser:passforxtremio01",
+        "xtremio02": "Basic base64encodeuser:passforxtremio02",
+        "xtremio03": "Basic base64encodeuser:passforxtremio03"
+      }
+    }
+```
+
 ## Troubleshooting
 
-First commit, nothing to mention yet.
+Nothing to mention yet.
 
 ## Development
 
