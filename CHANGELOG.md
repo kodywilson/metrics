@@ -2,6 +2,12 @@
 
 This file is used to list changes made to the metrics repo.
 
+## 08032016
+
+* General cleanup, lowered sleeps, finally settled on conf file handling.
+* Added link to Confluence documentation in README.
+* Created and tested perf_tracer_vmax.rb.
+
 ## 07252016
 
 * Created and tested perf_tracer_xtremio.rb.
