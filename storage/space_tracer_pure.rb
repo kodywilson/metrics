@@ -54,5 +54,5 @@ conf['arrays'].each do |ray, key|
     tags: tags
   }
   influxdb.write_point(measure, data)
-  sleep(0.5)
+  sleep(0.1)
 end

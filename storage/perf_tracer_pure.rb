@@ -7,7 +7,7 @@ require 'json'
 require 'influxdb'
 require 'stoarray'
 
-conf     = JSON.parse(File.read('/u01/app/prd/pure_stats/pure_stats.json'))
+conf     = JSON.parse(File.read(File.join(File.dirname(__FILE__), "pure_stats.json")))
 database = conf['database']
 host     = conf['db_host']
 username = conf['db_user']
@@ -55,5 +55,5 @@ conf['arrays'].each do |ray, key|
     tags: tags
   }
   influxdb.write_point(measure, data)
-  sleep(0.5)
+  sleep(0.1)
 end

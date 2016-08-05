@@ -3,6 +3,8 @@ metrics
 
 Scripts for gathering infrastructure metrics.
 
+Please see https://confluence.nordstrom.net/display/UCG/Metrics for more info.
+
 ## Installation
 Clone the repo, create reasonable json files, install required gems.
 
@@ -14,6 +16,9 @@ gem install stoarray influxdb
 ```
 
 ## Usage
+space_tracer_xxxxxx.rb - captures capacity metrics
+perf_tracer_xxxxxx.rb  - captures performance metrics
+
 Test the scripts, put in cron. Comment out the csv and db writes for testing.
 We run the perf scripts every minute and capacity every 30 minutes.
 
