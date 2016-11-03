@@ -2,6 +2,17 @@
 
 This file is used to list changes made to the metrics repo.
 
+## 11032016
+
+* Removed influxxer scripts as they are no longer needed.
+* Added link to further information on using these scripts.
+* Commented csv creation line in space_tracer_pure.rb
+
+## 08102016
+
+* General cleanup, lowered sleeps, finally settled on conf file handling.
+* Added link to Confluence documentation in README.
+
 ## 08032016
 
 * General cleanup, lowered sleeps, finally settled on conf file handling.

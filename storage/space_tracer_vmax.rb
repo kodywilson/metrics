@@ -2,6 +2,7 @@
 # Captures Vmax capacity metrics and sends to InfluxDB.
 # rubocop:disable Metrics/LineLength
 
+require 'base64'
 require 'csv'
 require 'json'
 require 'influxdb'
@@ -21,12 +22,6 @@ influxdb = InfluxDB::Client.new database, username: username,
 
 %w(1306 1765 1835).each do |ray|
   xmsmell = Nokogiri::XML(`/opt/emc/SYMCLI/bin/symcfg -sid #{ray} list -thin -gb -detail -gb -pool -output xml`)
-  CSV.open("#{base_dir}/log_capacity/#{ray}_#{Time.now.strftime('%Y%m%d%H%M%S')}.csv", 'wb') do |csv|
-    csv << xmsmell.at('Totals').search('*').map(&:name)
-    xmsmell.search('Totals').each do |x|
-      csv << x.search('*').map(&:text)
-    end
-  end
   tags = { array: ray, type: 'Vmax' }
   values = {}
   values['pct_used'] = xmsmell.search('Totals').search('percent_full').text.to_f.round(3)
@@ -39,5 +34,5 @@ influxdb = InfluxDB::Client.new database, username: username,
     tags: tags
   }
   influxdb.write_point(measure, data)
-  sleep(0.5)
+  sleep(0.1)
 end
