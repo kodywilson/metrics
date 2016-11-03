@@ -33,7 +33,8 @@ conf['arrays'].each do |ray, key|
   p_headers['Cookie'] = cookies
   p_url = base_url + 'array?space=true'
   astat = Stoarray.new(headers: p_headers, meth: 'Get', params: {}, url: p_url).array
-  CSV.open("#{base_dir}log_capacity/#{ray}_#{Time.now.strftime('%Y%m%d%H%M%S')}.csv", 'wb') { |csv| astat['response'].to_a.each { |elem| csv << elem } }
+  # Uncomment the line below if you want to also generate a csv file.
+  #CSV.open("#{base_dir}log_capacity/#{ray}_#{Time.now.strftime('%Y%m%d%H%M%S')}.csv", 'wb') { |csv| astat['response'].to_a.each { |elem| csv << elem } }
   tags = { array: ray, type: 'Pure' }
   values = {}
   astat['response'].to_a.each do |row|

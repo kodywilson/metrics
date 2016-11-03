@@ -3,7 +3,11 @@ metrics
 
 Scripts for gathering infrastructure metrics.
 
+Nordstrom Fellows
 Please see https://confluence.nordstrom.net/display/UCG/Metrics for more info.
+
+Everyone Else
+Please see https://kodywilson.com/
 
 ## Installation
 Clone the repo, create reasonable json files, install required gems.
